@@ -50,7 +50,7 @@ public class UploadVideoActivity extends AppCompatActivity {
     private static final String TAG = "UploadVideo";
     private static final int CAPTURE_RETURN = 1;
     private static final int GALLERY_RETURN = 2;
-    private static final String PREF_ACCOUNT_NAME = "accountName";
+    public static final String PREF_ACCOUNT_NAME = "accountName";
     private static final String[] SCOPES = {YouTubeScopes.YOUTUBE_READONLY, YouTubeScopes.YOUTUBE_UPLOAD};
     GoogleAccountCredential mCredential;
     private TextView mOutputText;
@@ -113,8 +113,7 @@ public class UploadVideoActivity extends AppCompatActivity {
     }
 
     private void chooseAccount() {
-        String accountName = getPreferences(Context.MODE_PRIVATE)
-                .getString(PREF_ACCOUNT_NAME, null);
+        String accountName = getPreferences(Context.MODE_PRIVATE).getString(PREF_ACCOUNT_NAME, null);
         if (accountName != null) {
             mCredential.setSelectedAccountName(accountName);
             //  new SaveTokenAsync().execute();
@@ -308,8 +307,8 @@ public class UploadVideoActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            Toast.makeText(UploadVideoActivity.this, "Video Id is " + s, Toast.LENGTH_SHORT).show();
-            LogUtils.DEBUG("VidId  "+   s);
+           // Toast.makeText(UploadVideoActivity.this, "Video Id is " + s, Toast.LENGTH_SHORT).show();
+           // LogUtils.DEBUG("VidId  "+   s);
             progressDialog.dismiss();
         }
     }
@@ -350,8 +349,6 @@ public class UploadVideoActivity extends AppCompatActivity {
 
 
    /* private void initCaptureButtons() {
-
-
         btnCaptureVideo = (Button) findViewById(R.id.btnCaptureVideo);
         btnCaptureVideo.setOnClickListener(new View.OnClickListener() {
 
